@@ -7,6 +7,7 @@
 - [License](#license)
 - [Citation](#citation)
 
+---
 
 # **Overview**
 
@@ -19,26 +20,30 @@ This repository implements ε-greedy reinforcement learning algorithms for polic
 
 # **Project Structure**
 
-| Path | Description |
-|------|-------------|
-| **`src/`** | **Main algorithm implementations** |
-| `├─ egreedy_lotkavolterra.py` | RL agent for Lotka–Volterra model |
-| `└─ egreedy_world2.py` | RL agent for World2 model |
-| **`report_helpers/`** | **Visualization and analysis tools** |
-| `├─ plotting.py` | Learning curve visualizations |
-| `└─ timing.py` | Performance timing analysis |
-| **`models/`** | **System dynamics models** |
-| `├─ pyworld2/` | World2 implementation (submodules & utilities) |
-| `├─ LotkaVolterra.py` | Lotka–Volterra equations |
-| `├─ run_scenarios.py` | Scenario execution framework |
-| `├─ setup.py` | Model configuration |
-| `├─ updated_data.json` | Model parameters |
-| `├─ world2_switch.py` | World2 model variants |
-| `└─ World2Lab.py` | World2 laboratory interface |
-| **`results/`** | **Experimental outputs and performance logs** |
-| `requirements.txt` | Python dependencies |
-| `README.md` | Project documentation |
-
+```
+RL_SD/
+├── src/                          # Main algorithm implementations
+│   ├── egreedy_lotkavolterra.py  # RL agent for Lotka–Volterra model
+│   └── egreedy_world2.py         # RL agent for World2 model
+│
+├── report_helpers/               # Visualization and analysis tools
+│   ├── plotting.py               # Learning curve visualizations
+│   └── timing.py                 # Performance timing analysis
+│
+├── models/                       # System dynamics models
+│   ├── pyworld2/                 # World2 implementation
+│   ├── LotkaVolterra.py          # Lotka–Volterra equations
+│   ├── run_scenarios.py          # Scenario execution framework
+│   ├── setup.py                  # Model configuration
+│   ├── updated_data.json         # Model parameters
+│   ├── world2_switch.py          # World2 model variants
+│   └── World2Lab.py              # World2 laboratory interface
+│
+├── results/                      # Experimental outputs and performance logs
+│
+├── requirements.txt              # Python dependencies
+└── README.md                     # Project documentation
+```
 ---
 
 # **How to Run**
