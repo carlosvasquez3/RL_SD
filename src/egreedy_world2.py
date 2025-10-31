@@ -11,7 +11,6 @@ import numpy as np
 import os
 import pandas as pd
 import time
-from tqdm import tqdm
 
 # JSON UTILITY FUNCTIONS
 def load_json_config(file_path):
@@ -90,9 +89,10 @@ if __name__ == "__main__":
     start_time = time.time()
     
     # EXPERIMENTAL PARAMETERS
-    epsilon_levels = [0.6]  # Exploration probability levels
+    #epsilon_levels = [0.1, 0.4, 0.6, 0.8]  # Exploration probability levels
+    epsilon_levels = [0.4, 0.6]  # Exploration probability levels
     rho_factor_levels = [[-0.01, 0, 0.01], [-0.1, 0, 0.1]]  # Parameter adjustment factors
-    num_repetitions = 10  # Number of experimental repetitions
+    num_repetitions = 2  # Number of experimental repetitions
     
     # JSON configuration file path
     config_file_path = os.path.join(os.path.dirname(__file__), "models", "pyworld2", "functions_switch_default.json")
@@ -104,7 +104,7 @@ if __name__ == "__main__":
     experimental_results = []
     
     # ALGORITHM EXECUTION
-    for epsilon, rho_factors, repetition in tqdm(treatments, desc="Processing treatments"):
+    for epsilon, rho_factors, repetition in treatments:
         treatment_start_time = time.time()
         
         # Initial parameter values for World2 model
@@ -117,7 +117,7 @@ if __name__ == "__main__":
         # RL algorithm parameters
         num_actions = len(rho_factors)  # Number of possible actions per parameter
         q_table = np.zeros((num_actions, num_actions, num_actions, num_actions, num_actions))  # Q-table for 5 parameters
-        max_runs = 700  # Maximum number of learning iterations
+        max_runs = 50  # Maximum number of learning iterations
         
         # Load initial configuration and get baseline return
         json_config = load_json_config(config_file_path)
@@ -240,10 +240,10 @@ if __name__ == "__main__":
     
     # Generate learning plots
     print("\nGenerating learning curve plots...")
-    generate_learning_plots(results_df, title_prefix="RL Agent Learning (World2)")
+    generate_learning_plots(results_df, title="RL Agent Learning (World2)")
     
     # Generate timing statistics table
     print("Generating execution time statistics...")
-    timing_stats = generate_timing_table(output_filename, max_run=700)
+    timing_stats = generate_timing_table(output_filename, max_runs)
     print("Timing statistics exported to: execution_time_statistics.csv")
     print(timing_stats)

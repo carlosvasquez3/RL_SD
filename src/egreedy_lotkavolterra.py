@@ -1,5 +1,5 @@
 # LIBRARIES
-from models import LotkaVolterraModel
+from models.LotkaVolterra import LotkaVolterraModel
 from report_helpers.plotting import generate_learning_plots
 from report_helpers.timing import generate_timing_table
 import numpy as np
@@ -32,9 +32,10 @@ if __name__ == "__main__":
     start_time = time.time()
     
     # EXPERIMENTAL PARAMETERS
-    epsilon_levels = [0.1, 0.4, 0.6, 0.8]  # Exploration probability levels
+    #epsilon_levels = [0.1, 0.4, 0.6, 0.8]  # Exploration probability levels
+    epsilon_levels = [0.6, 0.8]  # Exploration probability levels
     rho_factor_levels = [[-0.001, 0, 0.001], [-0.01, 0, 0.01], [-0.1, 0, 0.1]]  # Parameter adjustment factors
-    num_repetitions = 100  # Number of experimental repetitions
+    num_repetitions = 10  # Number of experimental repetitions #Eran 50
     
     # TREATMENT COMBINATIONS
     treatments = list(itertools.product(epsilon_levels, rho_factor_levels, range(1, num_repetitions+1)))
@@ -55,7 +56,7 @@ if __name__ == "__main__":
         # RL algorithm parameters
         num_actions = len(rho_factors)  # Number of possible actions per parameter
         q_table = np.zeros((num_actions, num_actions, num_actions, num_actions))  # Q-table for 4 parameters
-        max_runs = 1000  # Maximum number of learning iterations
+        max_runs = 500  # Maximum number of learning iterations
         
         # Initialize Lotka-Volterra model and get baseline return
         lv_model = LotkaVolterraModel(*current_parameters)
@@ -144,10 +145,10 @@ if __name__ == "__main__":
     
     # Generate learning plots
     print("\nGenerating learning curve plots...")
-    generate_learning_plots(results_df, title_prefix="RL Agent Learning (Lotka-Volterra)")
+    generate_learning_plots(results_df, title="RL Agent Learning (Lotka-Volterra)")
     
     # Generate timing statistics table
     print("Generating execution time statistics...")
-    timing_stats = generate_timing_table(output_filename)
+    timing_stats = generate_timing_table(output_filename, max_runs)
     print(f"Timing statistics exported to: execution_time_statistics.csv")
     print(timing_stats)
