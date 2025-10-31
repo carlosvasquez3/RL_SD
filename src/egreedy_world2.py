@@ -95,7 +95,7 @@ if __name__ == "__main__":
     num_repetitions = 2  # Number of experimental repetitions
     
     # JSON configuration file path
-    config_file_path = os.path.join(os.path.dirname(__file__), "models", "pyworld2", "functions_switch_default.json")
+    config_file_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "models", "pyworld2", "functions_switch_default.json")
     
     # TREATMENT COMBINATIONS
     treatments = list(itertools.product(epsilon_levels, rho_factor_levels, range(1, num_repetitions+1)))

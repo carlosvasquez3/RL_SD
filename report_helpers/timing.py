@@ -14,5 +14,8 @@ def generate_timing_table(csv_filename, max_run):
     df = pd.read_csv(csv_filename, delimiter=",")
     filtered_df = df[df["Run"] == max_run]
     timing_stats = filtered_df.groupby(["Epsilon_Level", "Rho_Level"])["Execution_Time"].agg(["mean", "std"]).reset_index()
-    timing_stats.to_csv("execution_time_statistics.csv", index=False)
+
+    timing_stats.columns = ["Epsilon_Level", "Rho_Level", "Mean", "Std"]
+    
+    timing_stats.to_csv("results/execution_time_statistics.csv", index=False)
     return timing_stats

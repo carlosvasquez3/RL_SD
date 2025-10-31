@@ -94,13 +94,12 @@ python -m src.egreedy_world2
 All experiment outputs will be automatically stored in the `results/` directory. See [Output Files](#output-files) for details.
 
 **Note:** You can modify experiment parameters directly in the scripts inside the `src/` folder to explore different learning behaviors.
-...
 
 ---
 
 ## **Output Files**
 
-#### **1. Experimental Results CSV**
+### **1. Experimental Results CSV**
 **Files:**
 - `RL_LotkaVolterra_Experiment_Results.csv` (Lotka-Volterra experiments)
 - `RL_World2_Experiment_Results.csv` (World2 experiments)
@@ -109,9 +108,9 @@ All experiment outputs will be automatically stored in the `results/` directory.
 | Column | Description |
 |--------|-------------|
 | `Epsilon_Level` | Exploration rate parameter (ε) |
-| `Rho_Level` | Discount factor parameter (ρ) |
+| `Rho_Level` | Parameter adjustment factor (ρ) - percentage modification |
 | `Repetition` | Experiment repetition number |
-| `Run` | Episode/iteration number |
+| `Run` | Iteration number |
 | `Execution_Time` | Computational time (seconds) |
 | `Return` | Cumulative reward obtained |
 
@@ -119,16 +118,16 @@ All experiment outputs will be automatically stored in the `results/` directory.
 
 ---
 
-##### **2. Execution Time Statistics**
+### **2. Execution Time Statistics**
 **File:** `execution_time_statistics.csv`
 
 **Structure:**
 | Column | Description |
 |--------|-------------|
-| `Epsilon_Level` | Exploration rate parameter |
-| `Rho_Level` | Discount factor parameter |
-| `mean` | Average execution time across repetitions |
-| `std` | Standard deviation of execution time |
+| `Epsilon_Level` | Exploration rate parameter (ε) |
+| `Rho_Level` | Parameter adjustment factor (ρ) |
+| `Mean` | Average execution time across repetitions |
+| `Std` | Standard deviation of execution time |
 
 **Purpose:** Performance benchmarking across different hyperparameter configurations.
 
