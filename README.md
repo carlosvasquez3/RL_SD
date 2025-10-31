@@ -125,7 +125,7 @@ All experiment outputs will be automatically stored in the `results/` directory.
 | Column | Description |
 |--------|-------------|
 | `Epsilon_Level` | Exploration rate parameter (ε) |
-| `Rho_Level` | Parameter adjustment factor (ρ) |
+| `Rho_Level` | Parameter adjustment factor (ρ) - percentage modification |
 | `Mean` | Average execution time across repetitions |
 | `Std` | Standard deviation of execution time |
 
