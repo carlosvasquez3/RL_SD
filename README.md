@@ -52,7 +52,7 @@ Follow these steps to set up the environment and execute the experiments.
 
 ### **1. Clone the Repository**
 ```bash
-git clone https://github.com/yourusername/RL_SD.git
+git clone https://github.com/juancamiloespana/RL_DS
 cd RL_SD
 ```
 
@@ -93,22 +93,73 @@ python -m src.egreedy_world2
 ### **5. View Results**
 All experiment outputs will be automatically stored in the `results/` directory. See [Output Files](#output-files) for details.
 
-**Note:** You can modify experiment parameters (learning rate, epsilon decay, episode count, etc.) directly in the scripts inside the `src/` folder to explore different learning behaviors.
+**Note:** You can modify experiment parameters directly in the scripts inside the `src/` folder to explore different learning behaviors.
 ...
 
 ---
 
 ## **Output Files**
-Each experiment generates comprehensive results:
+
+#### **1. Experimental Results CSV**
+**Files:**
+- `RL_LotkaVolterra_Experiment_Results.csv` (Lotka-Volterra experiments)
+- `RL_World2_Experiment_Results.csv` (World2 experiments)
+
+**Structure:**
+| Column | Description |
+|--------|-------------|
+| `Epsilon_Level` | Exploration rate parameter (ε) |
+| `Rho_Level` | Discount factor parameter (ρ) |
+| `Repetition` | Experiment repetition number |
+| `Run` | Episode/iteration number |
+| `Execution_Time` | Computational time (seconds) |
+| `Return` | Cumulative reward obtained |
+
+**Purpose:** Contains raw experimental data for all treatment combinations, enabling reproducibility and further statistical analysis.
+
+---
+
+##### **2. Execution Time Statistics**
+**File:** `execution_time_statistics.csv`
+
+**Structure:**
+| Column | Description |
+|--------|-------------|
+| `Epsilon_Level` | Exploration rate parameter |
+| `Rho_Level` | Discount factor parameter |
+| `mean` | Average execution time across repetitions |
+| `std` | Standard deviation of execution time |
+
+**Purpose:** Performance benchmarking across different hyperparameter configurations.
+
+---
+
+##### **3. Learning Curve Visualizations**
+**Format:** Interactive HTML plots (Plotly)
+
+**Features:**
+- **Mean return trajectories** – Average performance across repetitions
+- **95% Confidence intervals** – Statistical uncertainty bands (2.5th - 97.5th percentiles)
+- **Treatment comparison** – Multiple (ε, ρ) configurations overlaid
 
 ---
 
 ## **Licence**
-This project is licensed under ......... 
+This code is freely available for academic and research purposes. If you use this code in your research, please cite this repository.
 
 ---
 
 ## **Citation**
-If you use this code in your research, please cite:
 
----
+If you use this code in your research, please cite this repository:
+
+```bibtex
+@misc{rl_ds_2025,
+  author = {Juan C. España and Esteffany Peña-Puentes and Carlos Enrique Vásquez-Ortiz and Sebastián Jaén},
+  title = {RL\_DS: Reinforcement Learning and System Dynamics for policy optimization},
+  year = {2025},
+  publisher = {GitHub},
+  howpublished = {\url{https://github.com/juancamiloespana/RL_DS}},
+  note = {GitHub repository}
+}
+```

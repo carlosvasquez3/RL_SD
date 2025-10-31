@@ -1,6 +1,6 @@
 import pandas as pd
 
-def generate_timing_table(csv_filename, max_run=1000):
+def generate_timing_table(csv_filename, max_run):
     """
     Generate timing statistics table from experimental results.
     
