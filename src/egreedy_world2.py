@@ -122,14 +122,14 @@ if __name__ == "__main__":
         # Load initial configuration and get baseline return
         json_config = load_json_config(config_file_path)
         updated_config = update_world2_parameters(json_config, *current_parameters)
-        save_json_config(updated_config, "current_world2_config.json")
+        save_json_config(updated_config, os.path.join("models", "pyworld2", "current_world2_config.json"))
         
         # Initialize World2 model and get baseline performance
         world2_model = pyworld2.World2()
         world2_model.set_state_variables()
         world2_model.set_initial_state()
         world2_model.set_table_functions()
-        world2_model.set_switch_functions("current_world2_config.json")
+        world2_model.set_switch_functions(os.path.join("models", "pyworld2", "current_world2_config.json"))
         world2_model.run()
         
         initial_return = world2_model.aveg_ql()  # Average Quality of Life
@@ -142,14 +142,14 @@ if __name__ == "__main__":
             # Load configuration and execute model with previous parameters
             json_config = load_json_config(config_file_path)
             updated_config = update_world2_parameters(json_config, *current_parameters)
-            save_json_config(updated_config, "current_world2_config.json")
+            save_json_config(updated_config, os.path.join("models", "pyworld2", "current_world2_config.json"))
             
             # Run World2 model with current parameters
             world2_model = pyworld2.World2()
             world2_model.set_state_variables()
             world2_model.set_initial_state()
             world2_model.set_table_functions()
-            world2_model.set_switch_functions("current_world2_config.json")
+            world2_model.set_switch_functions(os.path.join("models", "pyworld2", "current_world2_config.json"))
             world2_model.run()
             
             previous_return = world2_model.aveg_ql()  # Previous performance metric
@@ -176,13 +176,13 @@ if __name__ == "__main__":
                 # Execute World2 model with new parameters
                 json_config = load_json_config(config_file_path)
                 updated_config = update_world2_parameters(json_config, *current_parameters)
-                save_json_config(updated_config, "current_world2_config.json")
+                save_json_config(updated_config, os.path.join("models", "pyworld2", "current_world2_config.json"))
                 
                 world2_model = pyworld2.World2()
                 world2_model.set_state_variables()
                 world2_model.set_initial_state()
                 world2_model.set_table_functions()
-                world2_model.set_switch_functions("current_world2_config.json")
+                world2_model.set_switch_functions(os.path.join("models", "pyworld2", "current_world2_config.json"))
                 world2_model.run()
                 
                 current_return = world2_model.aveg_ql()  # Current performance metric
@@ -225,7 +225,7 @@ if __name__ == "__main__":
     results_df = results_df.sort_values(by=['Epsilon_Level', 'Rho_Level', 'Repetition', 'Run'])
     
     # Export results to CSV
-    output_filename = 'RL_World2_Experiment_Results.csv'
+    output_filename = 'World2_Results.csv'
     results_df.to_csv(output_filename, index=False)
     
     print("World2 RL Experimental Results Summary:")

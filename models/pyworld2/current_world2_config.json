@@ -1,13 +1,13 @@
 [
     {
         "BRN": 0.04,
-        "BRN1": 0.02,
+        "BRN1": 0.020412000000000003,
         "trigger.name": "SWT1",
         "trigger.value": 1970
     },
     {
         "NRUN": 1,
-        "NRUN1": 0.1,
+        "NRUN1": 0.18225000000000002,
         "trigger.name": "SWT2",
         "trigger.value": 1970
     },
@@ -19,24 +19,24 @@
     },
     {
         "FC": 1,
-        "FC1": 1.25,
+        "FC1": 0.7128000000000002,
         "trigger.name": "SWT7",
         "trigger.value": 1970
     },
     {
         "CIGN": 0.05,
-        "CIGN1": 0.05,
+        "CIGN1": 0.024057000000000002,
         "trigger.name": "SWT4",
         "trigger.value": 1970
     },
     {
         "CIDN": 0.025,
-        "CIDN1": 0.02,
+        "CIDN1": 0.025,
         "trigger.name": "SWT5",
         "trigger.value": 1970
     },
     {
-        "POLN": 1.0,
+        "POLN": 0.36450000000000005,
         "POLN1": 1,
         "trigger.name": "SWT6",
         "trigger.value": 1970

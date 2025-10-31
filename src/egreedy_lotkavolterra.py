@@ -35,7 +35,7 @@ if __name__ == "__main__":
     #epsilon_levels = [0.1, 0.4, 0.6, 0.8]  # Exploration probability levels
     epsilon_levels = [0.6, 0.8]  # Exploration probability levels
     rho_factor_levels = [[-0.001, 0, 0.001], [-0.01, 0, 0.01], [-0.1, 0, 0.1]]  # Parameter adjustment factors
-    num_repetitions = 10  # Number of experimental repetitions #Eran 50
+    num_repetitions = 3# Number of experimental repetitions #Eran 50
     
     # TREATMENT COMBINATIONS
     treatments = list(itertools.product(epsilon_levels, rho_factor_levels, range(1, num_repetitions+1)))
@@ -130,7 +130,7 @@ if __name__ == "__main__":
     results_df = results_df.sort_values(by=['Epsilon_Level', 'Rho_Level', 'Repetition', 'Run'])
     
     # Export results to CSV
-    output_filename = 'RL_LotkaVolterra_Experiment_Results.csv'
+    output_filename = 'LotkaVolterra_Results.csv'
     results_df.to_csv(output_filename, index=False)
     
     print("Experimental Results Summary:")

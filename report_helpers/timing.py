@@ -17,5 +17,6 @@ def generate_timing_table(csv_filename, max_run):
 
     timing_stats.columns = ["Epsilon_Level", "Rho_Level", "Mean", "Std"]
     
-    timing_stats.to_csv("results/execution_time_statistics.csv", index=False)
+    timing_filename = csv_filename.replace('.csv', '_Timing_Statistics.csv')
+    timing_stats.to_csv(timing_filename, index=False)
     return timing_stats

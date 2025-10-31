@@ -119,7 +119,7 @@ All experiment outputs will be automatically stored in the `results/` directory.
 ---
 
 ### **2. Execution Time Statistics**
-**File:** `execution_time_statistics.csv`
+**File:** `[Experiment_Name]_Timing_Statistics.csv`
 
 **Structure:**
 | Column | Description |
